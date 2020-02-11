@@ -32,12 +32,12 @@ def runTask(day=0, hour=0, min=0, second=0):
         iter_now_time = iter_now.strftime('%Y-%m-%d %H:%M:%S')
         if (iter_now-iter_last).seconds>diff:
             iter_last = iter_now
+            print("现在时间:", strnow)
             for stockModel in stockConf:
                 code = stockModel.code
                 name = stockModel.name
                 buyPrice = float(stockModel.buyPrice)
                 sellerPrice = float(stockModel.sellerPrice)
-                print("现在时间:", strnow)
                 # Get every start work time
                 #print("start work: %s" % iter_now_time)
                 # Call task func
@@ -68,7 +68,9 @@ def runTask(day=0, hour=0, min=0, second=0):
                     print(content)
                     timeCount[code] = iter_now
                 continue
-
+            endnow = datetime.now()  # 获取当前时间
+            endstrnow = endnow.strftime('%Y-%m-%d %H:%M:%S')
+            print("结束时间:", endstrnow)
 
 
 import tushare as ts
@@ -80,7 +82,7 @@ if __name__ == '__main__':
     now = datetime.now()
     while True:
         print('开始启动')
-        #print(datetime.now())
+        print(datetime.now())
         try:
             runTask(second=30)
         except Exception as e:
