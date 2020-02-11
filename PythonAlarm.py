@@ -82,6 +82,6 @@ if __name__ == '__main__':
         print('开始启动')
         #print(datetime.now())
         try:
-            runTask(second=10)
+            runTask(second=30)
         except Exception as e:
             print("报错了",e)
