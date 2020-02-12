@@ -42,7 +42,7 @@ def runTask(day=0, hour=0, min=0, second=0):
                 #print("start work: %s" % iter_now_time)
                 # Call task func
                 cur_price=get_price(code)
-                print(name,"  现在股价:",cur_price)
+                print(name,"   现在股价:",cur_price,"设定买入股价为：",buyPrice,"设定卖出股价为：",sellerPrice)
                 if code in timeCount:
                     lastAlarmTime = timeCount[code]
                     diffsecond = (iter_now-lastAlarmTime).seconds
@@ -71,6 +71,9 @@ def runTask(day=0, hour=0, min=0, second=0):
             endnow = datetime.now()  # 获取当前时间
             endstrnow = endnow.strftime('%Y-%m-%d %H:%M:%S')
             print("结束时间:", endstrnow)
+        else:
+            print("休息20s")
+            time.sleep(20)
 
 
 import tushare as ts
