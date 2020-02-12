@@ -2,9 +2,10 @@ from configparser import ConfigParser
 
 import StockModel
 cp = ConfigParser()
-cp.read('stock.conf',encoding='UTF-8')
+
 
 def readStockConf():
+    cp.read('stock.conf', encoding='UTF-8')
     se = cp.sections()
     res = []
     for code in se:
