@@ -13,13 +13,13 @@ def cal_fluctuation(price_min_ago,cur_price): #计算股票每分钟浮动比例
     return fluctuation
 
 def runTask(day=0, hour=0, min=0, second=0):
-    stockConf = ConfigUtils.readStockConf()
     timeCount = {}
     now = datetime.now()  # 获取当前时间
     iter_last = now
 
     while True:
         # Init time
+        stockConf = ConfigUtils.readStockConf()
         now = datetime.now()  # 获取当前时间
         # df = ts.get_realtime_quotes(code)
 
