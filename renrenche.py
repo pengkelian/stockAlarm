@@ -84,13 +84,13 @@ url_header = 'https://www.renrenche.com/cn/ershouche/ft-dd/p'
 url_tail = '/?ft=dd&plog_id=9e528d4d463a966f6a50ebb470e41527&&sort=publish_time&seq=desc'
 
 if __name__ == '__main__':
+    repute = []
     while True:
         url = url_header + str(1) + url_tail
         links_list = get_car_box_url_list(url)
         iter_now = datetime.now()
         iter_now_time = iter_now.strftime('%Y-%m-%d %H:%M:%S')
         content = str(iter_now_time) + "  的上新二手车车：<br/>"
-        repute = []
         ifsend = False
         for link in links_list:
             if link not in repute:
