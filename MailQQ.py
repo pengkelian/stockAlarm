@@ -10,7 +10,7 @@ receivers = ['493341055@qq.com']  # 接收邮件，可设置为你的QQ邮箱或
 
 def sendEmail(title):
     content='股市重大变动通知:\n请注意操作!\n\n\nProduced by 英雄莫问'
-    message = MIMEText(title, 'plain', 'utf-8')  # 内容, 格式, 编码
+    message = MIMEText(title, 'HTML', 'utf-8')  # 内容, 格式, 编码
     message['From'] = "{}".format(sender)
     message['To'] = ",".join(receivers)
     message['Subject'] = "来自英雄莫问的邮件"
