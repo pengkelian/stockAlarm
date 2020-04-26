@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 from retrying import retry
-from MailQQ import sendEmail
+from MailQQ import sendEmailHtml
 import ConfigUtils
 from datetime import *
 import time
@@ -100,6 +100,6 @@ if __name__ == '__main__':
                 if dict.__contains__('title'):
                     content = content + '<br/> <a href = %s >%s    价格：%s</a>' % (link,dict['title'],dict['price'])  # 自定义提醒内容
         if ifsend:
-            sendEmail(content)  # 发送提醒邮件
+            sendEmailHtml(content)  # 发送提醒邮件
             print("发送邮件::")
         time.sleep(60)
