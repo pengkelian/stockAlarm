@@ -98,7 +98,7 @@ if __name__ == '__main__':
                 repute.append(link)
                 dict = get_car_details(link)
                 if dict.__contains__('title'):
-                    content = content + '<br/> <a href = %s >%s</a>' % (link,dict['title'])  # 自定义提醒内容
+                    content = content + '<br/> <a href = %s >%s    价格：%s</a>' % (link,dict['title'],dict['price'])  # 自定义提醒内容
         if ifsend:
             sendEmail(content)  # 发送提醒邮件
             print("发送邮件::")
