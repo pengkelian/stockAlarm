@@ -27,7 +27,7 @@ def sendEmailHtml(title):
     message = MIMEText(title, 'HTML', 'utf-8')  # 内容, 格式, 编码
     message['From'] = "{}".format(sender)
     message['To'] = ",".join(receivers)
-    message['Subject'] = "来自英雄莫问的邮件"
+    message['Subject'] = "来自人人车的邮件"
     try:
         smtpObj = smtplib.SMTP_SSL(mail_host, 465)  # 启用SSL发信, 端口一般是465
         smtpObj.login(mail_user, mail_pass)  # 登录验证

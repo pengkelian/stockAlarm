@@ -86,10 +86,17 @@ url_tail = '/?ft=dd&plog_id=9e528d4d463a966f6a50ebb470e41527&&sort=publish_time&
 if __name__ == '__main__':
     repute = []
     start = 0
+    #把第二页的先放进去，免得调入第一页
+    url = url_header + str(2) + url_tail
+    links_list = get_car_box_url_list(url)
+    for link in links_list:
+        repute.append(link)
+    print("第二页加载完成，下面开始监控第一页")
     while True:
         print("启动。。。")
         url = url_header + str(1) + url_tail
         links_list = get_car_box_url_list(url)
+        print("抓到的二手车数量：",len(links_list))
         iter_now = datetime.now()
         iter_now_time = iter_now.strftime('%Y-%m-%d %H:%M:%S')
         content = str(iter_now_time) + "  的上新二手车车：<br/>"
