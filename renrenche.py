@@ -85,7 +85,9 @@ url_tail = '/?ft=dd&plog_id=9e528d4d463a966f6a50ebb470e41527&&sort=publish_time&
 
 if __name__ == '__main__':
     repute = []
+    start = 0
     while True:
+        print("启动。。。")
         url = url_header + str(1) + url_tail
         links_list = get_car_box_url_list(url)
         iter_now = datetime.now()
@@ -93,7 +95,7 @@ if __name__ == '__main__':
         content = str(iter_now_time) + "  的上新二手车车：<br/>"
         ifsend = False
         for link in links_list:
-            if link not in repute:
+            if link is not None and link not in repute:
                 ifsend = True
                 repute.append(link)
                 dict = get_car_details(link)
@@ -101,5 +103,5 @@ if __name__ == '__main__':
                     content = content + '<br/> <a href = %s >%s    价格：%s</a>' % (link,dict['title'],dict['price'])  # 自定义提醒内容
         if ifsend:
             sendEmailHtml(content)  # 发送提醒邮件
-            print("发送邮件::")
+            print("发送邮件。。。")
         time.sleep(60)
