@@ -80,7 +80,7 @@ def get_car_box_url_list(url):
     return links_list
 
 
-url_header = 'https://www.renrenche.com/cn/ershouche/ft-dd/p'
+url_header = 'https://www.renrenche.com/bj/ershouche/ft-dd/p'
 url_tail = '/?ft=dd&plog_id=9e528d4d463a966f6a50ebb470e41527&&sort=publish_time&seq=desc'
 
 if __name__ == '__main__':
